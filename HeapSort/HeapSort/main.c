@@ -63,6 +63,7 @@ void heapSort(int array[],int endIndex) {
     int temp;
     buildHeap(array,endIndex);
     for (int i = endIndex ; i >= 1 ; i-- ) {
+        //此处为啥是交换array【1】而不是array[0]？？？？
         temp = array[i];
         array[i] = array[1];
         array[1] = temp;
@@ -79,3 +80,41 @@ int main(int argc, const char * argv[]) {
     printf("\n");
     return 0;
 }
+//循环代替递归方法
+//void HeapAjust(int data[],int i,int length)
+//{
+//    int nChild;
+//    int nTemp;
+//    for(nTemp=data[i];2*i+1<length;i=nChild)
+//    {
+//        nChild=2*i+1;
+//        if(nChild<length-1&&data[nChild+1]>data[nChild])//比较哪个孩子比自己大，如果是右孩子的话，就要将nChild++；
+//        {
+//            nChild++;
+//        }
+//        
+//        if(nTemp<data[nChild])//如果比自己的最大的孩子小，就交换
+//        {
+//            data[i]=data[nChild];
+//            data[nChild]=nTemp;
+//        }
+//        else//如果比最大的孩子还大，就不交换
+//            break;
+//    }
+//}
+//
+////堆排序
+//void HeapSort(int data[],int length)
+//{
+//    for(int i=(length>>1)-1;i>=0;i--)//注意这个地方：i=(length>>1)-1，加上括号，原因：优先级的问题
+//    {
+//        HeapAjust(data,i,length);//初始化一个堆
+//    }
+//    for(int j=length-1;j>0;--j)
+//    {
+//        int temp=data[j];
+//        data[j]=data[0];
+//        data[0]=temp;
+//        HeapAjust(data,0,j);
+//    }
+//}
