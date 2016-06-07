@@ -53,6 +53,49 @@ void lastOrder(BinaryTree T){
         printf("%c ",T->data);
     }
 }
+//非递归遍历
+/*
+void preorderNonrecursive(TreeNode * node) {
+    stack<TreeNode *> s;
+    s.push(node);
+    while (!s.empty()) {
+        TreeNode * n = s.pop();
+        visit(n);
+        if (n->right!=NULL) s.push(n->right);
+        if (n->left!=NULL) s.push(n->left);
+    }
+}
+￼
+void inorderNonrecursive(TreeNode * node) {
+    stack<TreeNode *> s;
+    TreeNode * current = node;
+    while (!s.empty() || current != NULL) {
+        if (current != NULL) { 
+            s.push(current);
+            current = current->left;
+        }
+        else {
+            current = s.pop();
+            visit(current);
+            current = current->right;
+        }
+    }
+}
+void postorderNonrecursive(TreeNode * node) {
+    // visiting occurs only when current has no right child or last visited is his right child
+    stack<TreeNode *> sTraverse, sVisit;
+    sTraverse.push(node);
+    while (!sTraverse.empty()) {
+        TreeNode * p = sTraverse.pop();
+        sVisit.push(p);
+        if (p->left != NULL) sTraverse.push(p->left);
+        if (p->right != NULL) sTraverse.push(p->right);
+    }
+    while (!sVisit.empty()) {
+        visit(sVisit.pop);
+    }
+}
+ */
 //层次遍历
 /*第一种方法，就是利用递归的方法，按层进行打印，我们把根节点当做第0层，之后层次依次增加，如果我们成功的打印了给定的层次，那么就返回非0
  的正值，如果失败返回0。有了这个思路，我们就可以应用一个循环，来打印这颗树的所有层的节点，但是有个问题就是我们不知道这棵二叉树的深度，
