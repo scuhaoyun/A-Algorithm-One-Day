@@ -4,7 +4,7 @@
 //
 //  Created by 郝赟 on 16/6/15.
 //  Copyright © 2016年 haoyun. All rights reserved.
-//
+//  本例采用两种算法进行字符串旋转，一种使用递归的思想，另一种使用反序的思想
 
 #include <stdio.h>
 //思想:旋转向量x其实就是交换向量ab的两段，这里a代表前loc个元素。假设a比b短，将b分为b(l)和b(r)，使得b(r)具有与a相同的长度，交换a和b(r)，就得到
